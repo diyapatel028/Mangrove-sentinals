@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile - Mangrove Sentinel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css"/>
+</head>
+<body class="dark">
+  <header class="navbar container">
+    <div class="brand">
+      <div class="logo-dot"></div>
+      <span class="brand-text">Mangrove Sentinel</span>
+    </div>
+    <nav class="nav-links">
+      <a href="/conservation">Conservation</a>
+      <a href="/ecosystem">Ecosystem</a>
+      <a href="/community">Community</a>
+      <a href="/events">Events</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-white" href="/dashboard">Dashboard</a>
+      <a class="btn btn-green" href="#" onclick="logout()">Logout</a>
+    </div>
+    <button class="nav-toggle" aria-label="toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main class="container section">
+    <div class="section-head">
+      <h1>My Profile</h1>
+      <p class="muted">Manage your sentinel account</p>
+    </div>
+
+    <div class="grid grid-2" style="gap: 24px;">
+      <!-- Profile Stats -->
+      <div class="card">
+        <h3>Sentinel Stats</h3>
+        <div class="grid grid-2" style="gap: 16px; margin-top: 16px;">
+          <div class="card kpi">
+            <span class="kpi-label">Points Earned</span>
+            <span class="kpi-value" id="user-points">0</span>
+          </div>
+          <div class="card kpi">
+            <span class="kpi-label">Reports Submitted</span>
+            <span class="kpi-value" id="user-reports">0</span>
+          </div>
+        </div>
+        <div style="margin-top: 16px;">
+          <h4>Status: <span id="user-status" style="color: var(--green);">Active Sentinel</span></h4>
+          <p class="muted">Member since: <span id="member-since"></span></p>
+        </div>
+      </div>
+
+      <!-- Profile Form -->
+      <div class="card">
+        <h3>Update Profile</h3>
+        <form id="profileForm" style="margin-top: 16px;">
+          <div style="margin-bottom: 16px;">
+            <label style="display: block; margin-bottom: 8px; color: var(--text);">Full Name</label>
+            <input type="text" id="full_name" name="full_name" 
+                   style="width: 100%; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg-2); color: var(--text);">
+          </div>
+          
+          <div style="margin-bottom: 16px;">
+            <label style="display: block; margin-bottom: 8px; color: var(--text);">Email</label>
+            <input type="email" id="email" name="email" readonly
+                   style="width: 100%; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--card); color: var(--muted);">
+          </div>
+          
+          <div style="margin-bottom: 16px;">
+            <label style="display: block; margin-bottom: 8px; color: var(--text);">Phone</label>
+            <input type="tel" id="phone" name="phone" 
+                   style="width: 100%; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg-2); color: var(--text);">
+          </div>
+          
+          <div style="margin-bottom: 16px;">
+            <label style="display: block; margin-bottom: 8px; color: var(--text);">Location</label>
+            <input type="text" id="location" name="location" 
+                   style="width: 100%; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg-2); color: var(--text);">
+          </div>
+          
+          <div style="margin-bottom: 24px;">
+            <label style="display: block; margin-bottom: 8px; color: var(--text);">New Password (leave blank to keep current)</label>
+            <input type="password" id="password" name="password" 
+                   style="width: 100%; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg-2); color: var(--text);">
+          </div>
+          
+          <button type="submit" class="btn btn-green" style="width: 100%;">Update Profile</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- My Reports Section -->
+    <div class="card" style="margin-top: 24px;">
+      <h3>My Reports</h3>
+      <div id="user-reports-list" style="margin-top: 16px;">
+        <!-- Reports will be loaded here -->
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-note">© Team DZ | Hackout'25 | Project Mangrove Sentinel</div>
+  </footer>
+
+  <script src="/static/auth.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async function() {
+      await loadUserProfile();
+      await loadUserReports();
+    });
+
+    document.getElementById('profileForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const formData = {};
+      const fullName = document.getElementById('full_name').value;
+      const phone = document.getElementById('phone').value;
+      const location = document.getElementById('location').value;
+      const password = document.getElementById('password').value;
+      
+      if (fullName) formData.full_name = fullName;
+      if (phone) formData.phone = phone;
+      if (location) formData.location = location;
+      if (password) formData.password = password;
+      
+      const result = await updateUserProfile(formData);
+      if (result) {
+        await loadUserProfile(); // Reload profile data
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Events & Activities - Mangrove Sentinel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css"/>
+</head>
+<body class="dark">
+  <header class="navbar container">
+    <div class="brand">
+      <div class="logo-dot"></div>
+      <span class="brand-text">Mangrove Sentinel</span>
+    </div>
+    <nav class="nav-links">
+      <a href="/conservation">Conservation</a>
+      <a href="/ecosystem">Ecosystem</a>
+      <a href="/community">Community</a>
+      <a href="/events" class="active">Events</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-white" href="/profile">Profile</a>
+      <a class="btn btn-green" href="/dashboard">Dashboard</a>
+    </div>
+    <button class="nav-toggle" aria-label="toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main class="container section">
+    <div class="section-head">
+      <h1>📅 Events & Activities</h1>
+      <p class="muted">Join us for conservation events, workshops, and community gatherings</p>
+    </div>
+
+    <!-- Event Stats -->
+    <div class="grid grid-4 kpis">
+      <div class="card kpi">
+        <span class="kpi-label">Upcoming Events</span>
+        <span class="kpi-value" id="upcoming-events">12</span>
+      </div>
+      <div class="card kpi">
+        <span class="kpi-label">This Month</span>
+        <span class="kpi-value" id="monthly-events">8</span>
+      </div>
+      <div class="card kpi">
+        <span class="kpi-label">Total Attendees</span>
+        <span class="kpi-value" id="total-attendees">3,420</span>
+      </div>
+      <div class="card kpi">
+        <span class="kpi-label">Events Completed</span>
+        <span class="kpi-value" id="completed-events">156</span>
+      </div>
+    </div>
+
+    <!-- Upcoming Events -->
+    <section class="mt-lg">
+      <h2>Upcoming Events</h2>
+      <div class="grid grid-1 mt-md">
+        
+        <!-- Featured Event -->
+        <div class="card" style="background: linear-gradient(135deg, var(--green) 0%, #007ea7 100%); color: white; padding: 32px;">
+          <div style="display: flex; justify-content: between; align-items: start; gap: 24px;">
+            <div style="flex: 1;">
+              <span style="padding: 4px 8px; border-radius: 12px; font-size: 12px; background: rgba(255,255,255,0.2); color: white; margin-bottom: 16px; display: inline-block;">Featured Event</span>
+              <h2 style="margin: 0 0 12px 0;">World Mangrove Day Celebration</h2>
+              <p style="margin: 0 0 20px 0; opacity: 0.9;">Join thousands of conservationists worldwide for the largest mangrove conservation event of the year. Activities include tree planting, awareness campaigns, and community workshops.</p>
+              <div style="display: flex; gap: 24px; margin-bottom: 20px;">
+                <div>
+                  <div style="opacity: 0.8; font-size: 12px; margin-bottom: 4px;">📅 Date</div>
+                  <div style="font-weight: 600;">July 26, 2024</div>
+                </div>
+                <div>
+                  <div style="opacity: 0.8; font-size: 12px; margin-bottom: 4px;">📍 Location</div>
+                  <div style="font-weight: 600;">Multiple Venues</div>
+                </div>
+                <div>
+                  <div style="opacity: 0.8; font-size: 12px; margin-bottom: 4px;">👥 Expected</div>
+                  <div style="font-weight: 600;">5,000+ attendees</div>
+                </div>
+              </div>
+              <a class="btn" style="background: white; color: var(--green); border: none;" href="#register">Register Now</a>
+            </div>
+            <div style="width: 150px; height: 150px; background: rgba(255,255,255,0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 64px;">🌍</div>
+          </div>
+        </div>
+
+        <!-- Regular Events List -->
+        <div class="card">
+          <h3>September 2024 Events</h3>
+          <div style="margin-top: 20px;">
+            
+            <!-- Event Item -->
+            <div style="display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line);">
+              <div style="min-width: 60px; text-align: center;">
+                <div style="color: var(--green); font-weight: 700; font-size: 18px;">15</div>
+                <div style="color: var(--muted); font-size: 12px;">SEP</div>
+              </div>
+              <div style="flex: 1;">
+                <h4 style="margin: 0 0 4px 0;">Beach Cleanup & Mangrove Survey</h4>
+                <p style="margin: 0 0 8px 0; color: var(--muted);">Community-driven cleanup followed by ecosystem health assessment</p>
+                <div style="display: flex; gap: 16px; font-size: 14px; color: var(--muted);">
+                  <span>📍 Marine National Park, Gujarat</span>
+                  <span>⏰ 7:00 AM - 2:00 PM</span>
+                  <span>👥 25 spots available</span>
+                </div>
+              </div>
+              <div>
+                <a class="btn btn-green btn-sm" href="#register">Join</a>
+              </div>
+            </div>
+
+            <!-- Event Item -->
+            <div style="display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line);">
+              <div style="min-width: 60px; text-align: center;">
+                <div style="color: var(--amber); font-weight: 700; font-size: 18px;">22</div>
+                <div style="color: var(--muted); font-size: 12px;">SEP</div>
+              </div>
+              <div style="flex: 1;">
+                <h4 style="margin: 0 0 4px 0;">Mangrove Restoration Workshop</h4>
+                <p style="margin: 0 0 8px 0; color: var(--muted);">Hands-on training for proper mangrove planting techniques</p>
+                <div style="display: flex; gap: 16px; font-size: 14px; color: var(--muted);">
+                  <span>📍 Sundarbans, West Bengal</span>
+                  <span>⏰ 6:00 AM - 12:00 PM</span>
+                  <span>👥 15 spots available</span>
+                </div>
+              </div>
+              <div>
+                <a class="btn btn-green btn-sm" href="#register">Register</a>
+              </div>
+            </div>
+
+            <!-- Event Item -->
+            <div style="display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line);">
+              <div style="min-width: 60px; text-align: center;">
+                <div style="color: var(--blue); font-weight: 700; font-size: 18px;">28</div>
+                <div style="color: var(--muted); font-size: 12px;">SEP</div>
+              </div>
+              <div style="flex: 1;">
+                <h4 style="margin: 0 0 4px 0;">Scientific Research Symposium</h4>
+                <p style="margin: 0 0 8px 0; color: var(--muted);">Latest research findings on mangrove ecosystem resilience</p>
+                <div style="display: flex; gap: 16px; font-size: 14px; color: var(--muted);">
+                  <span>📍 TERI University, New Delhi</span>
+                  <span>⏰ 9:00 AM - 5:00 PM</span>
+                  <span>👥 Virtual + In-person</span>
+                </div>
+              </div>
+              <div>
+                <a class="btn btn-white btn-sm" href="#register">Attend</a>
+              </div>
+            </div>
+
+            <!-- Event Item -->
+            <div style="display: flex; gap: 16px; padding: 16px 0;">
+              <div style="min-width: 60px; text-align: center;">
+                <div style="color: var(--green); font-weight: 700; font-size: 18px;">30</div>
+                <div style="color: var(--muted); font-size: 12px;">SEP</div>
+              </div>
+              <div style="flex: 1;">
+                <h4 style="margin: 0 0 4px 0;">Photography Contest & Exhibition</h4>
+                <p style="margin: 0 0 8px 0; color: var(--muted);">Showcase the beauty of mangrove ecosystems through photography</p>
+                <div style="display: flex; gap: 16px; font-size: 14px; color: var(--muted);">
+                  <span>📍 India Habitat Centre, Delhi</span>
+                  <span>⏰ 10:00 AM - 8:00 PM</span>
+                  <span>👥 Open to all</span>
+                </div>
+              </div>
+              <div>
+                <a class="btn btn-green btn-sm" href="#participate">Participate</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Event Categories -->
+    <section class="mt-lg">
+      <h2>Event Categories</h2>
+      <div class="grid grid-4 mt-md">
+        <a class="card pill" href="#conservation">
+          <h4>🌱 Conservation</h4>
+          <p class="muted">Tree planting and habitat restoration</p>
+        </a>
+        <a class="card pill" href="#research">
+          <h4>🔬 Research</h4>
+          <p class="muted">Scientific studies and data collection</p>
+        </a>
+        <a class="card pill" href="#education">
+          <h4>📚 Education</h4>
+          <p class="muted">Workshops and training programs</p>
+        </a>
+        <a class="card pill" href="#advocacy">
+          <h4>📢 Advocacy</h4>
+          <p class="muted">Policy discussions and awareness</p>
+        </a>
+        <a class="card pill" href="#community">
+          <h4>🤝 Community</h4>
+          <p class="muted">Local engagement and networking</p>
+        </a>
+        <a class="card pill" href="#technology">
+          <h4>💻 Technology</h4>
+          <p class="muted">Innovation in conservation tools</p>
+        </a>
+        <a class="card pill" href="#cultural">
+          <h4>🎨 Cultural</h4>
+          <p class="muted">Art, music, and cultural events</p>
+        </a>
+        <a class="card pill" href="#youth">
+          <h4>👨‍🎓 Youth</h4>
+          <p class="muted">Student-focused activities</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Past Events Highlights -->
+    <section class="mt-lg">
+      <h2>Recent Event Highlights</h2>
+      <div class="grid grid-3 mt-md">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1545243424-0ce743321e11?q=80&w=800&auto=format&fit=crop" 
+               alt="Restoration event" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px;">
+          <div style="padding: 16px 0;">
+            <h4>Mega Restoration Drive</h4>
+            <p class="muted">500 volunteers planted 2,000 mangrove saplings in Pichavaram</p>
+            <div style="display: flex; justify-content: space-between; margin-top: 12px;">
+              <span class="muted">Aug 12, 2024</span>
+              <span style="color: var(--green);">✅ Completed</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop" 
+               alt="Workshop" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px;">
+          <div style="padding: 16px 0;">
+            <h4>Youth Leadership Summit</h4>
+            <p class="muted">150 young leaders from 15 states gathered for conservation training</p>
+            <div style="display: flex; justify-content: space-between; margin-top: 12px;">
+              <span class="muted">Jul 20-22, 2024</span>
+              <span style="color: var(--green);">✅ Completed</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=800&auto=format&fit=crop" 
+               alt="Research" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px;">
+          <div style="padding: 16px 0;">
+            <h4>Marine Research Expedition</h4>
+            <p class="muted">Scientists documented 47 new species in Sundarbans ecosystem</p>
+            <div style="display: flex; justify-content: space-between; margin-top: 12px;">
+              <span class="muted">Jun 15-30, 2024</span>
+              <span style="color: var(--green);">✅ Completed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Event Calendar -->
+    <section class="mt-lg">
+      <h2>Event Calendar</h2>
+      <div class="card mt-md">
+        <div style="text-align: center; padding: 40px;">
+          <div style="font-size: 48px; margin-bottom: 16px;">📅</div>
+          <h3>Interactive Calendar Coming Soon</h3>
+          <p class="muted">We're building an interactive calendar to help you discover and track events more easily.</p>
+          <div style="margin-top: 24px;">
+            <a class="btn btn-green" href="/events">View All Events</a>
+            <a class="btn btn-white" href="#notify" style="margin-left: 12px;">Get Notified</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <div class="center mt-lg">
+      <a class="btn btn-green" href="#host">Host an Event</a>
+      <a class="btn btn-white" href="#subscribe" style="margin-left: 12px;">Subscribe to Updates</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-note">© Team DZ | Hackout'25 | Project Mangrove Sentinel</div>
+  </footer>
+
+  <script src="/static/auth.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async function() {
+      await loadEventsData();
+    });
+
+    async function loadEventsData() {
+      try {
+        // Load events stats
+        const statsResponse = await fetch('/api/v1/events/stats');
+        if (statsResponse.ok) {
+          const stats = await statsResponse.json();
+          document.getElementById('upcoming-events').textContent = stats.upcoming_events;
+          document.getElementById('monthly-events').textContent = stats.monthly_events;
+          document.getElementById('total-attendees').textContent = stats.total_attendees.toLocaleString();
+          document.getElementById('completed-events').textContent = stats.completed_events;
+        }
+      } catch (error) {
+        console.error('Error loading events data:', error);
+      }
+    }
+  </script>
+  <script defer src="/static/script.js"></script>
+</body>
+</html>

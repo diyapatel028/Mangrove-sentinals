@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Conservation Projects - Mangrove Sentinel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css"/>
+</head>
+<body class="dark">
+  <header class="navbar container">
+    <div class="brand">
+      <div class="logo-dot"></div>
+      <span class="brand-text">Mangrove Sentinel</span>
+    </div>
+    <nav class="nav-links">
+      <a href="/conservation" class="active">Conservation</a>
+      <a href="/ecosystem">Ecosystem</a>
+      <a href="/community">Community</a>
+      <a href="/events">Events</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-white" href="/profile">Profile</a>
+      <a class="btn btn-green" href="/dashboard">Dashboard</a>
+    </div>
+    <button class="nav-toggle" aria-label="toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main class="container section">
+    <div class="section-head">
+      <h1>🌱 Conservation Projects</h1>
+      <p class="muted">Protecting and restoring mangrove ecosystems across India</p>
+    </div>
+
+    <!-- Active Projects Stats -->
+    <div class="grid grid-4 kpis">
+      <div class="card kpi">
+        <span class="kpi-label">Active Projects</span>
+        <span class="kpi-value" id="active-projects">24</span>
+      </div>
+      <div class="card kpi">
+        <span class="kpi-label">Trees Planted</span>
+        <span class="kpi-value" id="trees-planted">15,420</span>
+      </div>
+      <div class="card kpi">
+        <span class="kpi-label">Area Restored</span>
+        <span class="kpi-value" id="area-restored">340</span>
+        <div class="kpi-unit">hectares</div>
+      </div>
+      <div class="card kpi">
+        <span class="kpi-label">Volunteers</span>
+        <span class="kpi-value" id="volunteers">1,245</span>
+      </div>
+    </div>
+
+    <!-- Featured Projects -->
+    <section class="mt-lg">
+      <h2>Featured Conservation Projects</h2>
+      <div class="grid grid-2 mt-md">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1545243424-0ce743321e11?q=80&w=800&auto=format&fit=crop" 
+               alt="Sundarbans restoration" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
+          <div style="padding: 16px 0;">
+            <h3>Sundarbans Restoration Initiative</h3>
+            <p class="muted">Large-scale mangrove restoration project in the world's largest mangrove forest.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px;">
+              <span style="padding: 4px 8px; border-radius: 12px; font-size: 12px; background: var(--green); color: #06240f;">Active</span>
+              <span class="muted">2,340 trees planted</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=800&auto=format&fit=crop" 
+               alt="Coastal protection" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
+          <div style="padding: 16px 0;">
+            <h3>Coastal Protection Project</h3>
+            <p class="muted">Strengthening coastal defenses through strategic mangrove plantation in Kerala.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px;">
+              <span style="padding: 4px 8px; border-radius: 12px; font-size: 12px; background: var(--amber); color: #2f1b00;">Planning</span>
+              <span class="muted">45 hectares planned</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=800&auto=format&fit=crop" 
+               alt="Community conservation" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
+          <div style="padding: 16px 0;">
+            <h3>Community-Led Conservation</h3>
+            <p class="muted">Empowering local fishing communities in Gujarat for sustainable mangrove management.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px;">
+              <span style="padding: 4px 8px; border-radius: 12px; font-size: 12px; background: var(--green); color: #06240f;">Active</span>
+              <span class="muted">15 communities engaged</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=800&auto=format&fit=crop" 
+               alt="Research station" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
+          <div style="padding: 16px 0;">
+            <h3>Marine Research Station</h3>
+            <p class="muted">Establishing monitoring stations for long-term ecosystem health assessment.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px;">
+              <span style="padding: 4px 8px; border-radius: 12px; font-size: 12px; background: var(--blue); color: #0a1b3d;">In Progress</span>
+              <span class="muted">3 stations operational</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Project Categories -->
+    <section class="mt-lg">
+      <h2>Project Categories</h2>
+      <div class="grid grid-3 mt-md">
+        <a class="card pill" href="#restoration">
+          <h4>🌳 Restoration</h4>
+          <p class="muted">Active replanting and rehabilitation projects</p>
+        </a>
+        <a class="card pill" href="#protection">
+          <h4>🛡️ Protection</h4>
+          <p class="muted">Conservation of existing mangrove forests</p>
+        </a>
+        <a class="card pill" href="#research">
+          <h4>🔬 Research</h4>
+          <p class="muted">Scientific studies and monitoring programs</p>
+        </a>
+        <a class="card pill" href="#education">
+          <h4>📚 Education</h4>
+          <p class="muted">Community awareness and training initiatives</p>
+        </a>
+        <a class="card pill" href="#policy">
+          <h4>⚖️ Policy</h4>
+          <p class="muted">Advocacy and regulatory framework development</p>
+        </a>
+        <a class="card pill" href="#technology">
+          <h4>💡 Technology</h4>
+          <p class="muted">Innovation in conservation tools and methods</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Recent Updates -->
+    <section class="mt-lg">
+      <h2>Recent Project Updates</h2>
+      <div class="card mt-md">
+        <ul class="list" id="project-updates">
+          <li><span class="dot dot-green"></span> Sundarbans project planted 500 new saplings this week</li>
+          <li><span class="dot dot-blue"></span> New monitoring station activated in Bhitarkanika</li>
+          <li><span class="dot dot-amber"></span> Community training program launched in 5 coastal villages</li>
+          <li><span class="dot dot-green"></span> Successfully restored 12 hectares in Pichavaram mangroves</li>
+          <li><span class="dot dot-blue"></span> Research paper published on climate adaptation strategies</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <div class="center mt-lg">
+      <a class="btn btn-green" href="/report">Report Threats</a>
+      <a class="btn btn-white" href="/register" style="margin-left: 12px;">Join Conservation</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-note">© Team DZ | Hackout'25 | Project Mangrove Sentinel</div>
+  </footer>
+
+  <script src="/static/auth.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async function() {
+      await loadConservationData();
+    });
+
+    async function loadConservationData() {
+      try {
+        // Load conservation stats
+        const statsResponse = await fetch('/api/v1/conservation/stats');
+        if (statsResponse.ok) {
+          const stats = await statsResponse.json();
+          document.getElementById('active-projects').textContent = stats.active_projects;
+          document.getElementById('trees-planted').textContent = stats.trees_planted.toLocaleString();
+          document.getElementById('area-restored').textContent = stats.area_restored;
+          document.getElementById('volunteers').textContent = stats.volunteers.toLocaleString();
+        }
+
+        // Load recent updates
+        const updatesResponse = await fetch('/api/v1/conservation/updates');
+        if (updatesResponse.ok) {
+          const updates = await updatesResponse.json();
+          const updatesList = document.getElementById('project-updates');
+          if (updatesList && updates.length > 0) {
+            updatesList.innerHTML = updates.map(update => 
+              `<li><span class="dot dot-${update.dot_color}"></span> ${update.text}</li>`
+            ).join('');
+          }
+        }
+
+        // Load projects data
+        const projectsResponse = await fetch('/api/v1/conservation/projects');
+        if (projectsResponse.ok) {
+          const projects = await projectsResponse.json();
+          updateProjectsDisplay(projects);
+        }
+      } catch (error) {
+        console.error('Error loading conservation data:', error);
+      }
+    }
+
+    function updateProjectsDisplay(projects) {
+      // Update project cards with real data if needed
+      // This could be expanded to dynamically generate project cards
+      console.log('Loaded projects:', projects);
+    }
+  </script>
+  <script defer src="/static/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sentinel Leaderboard - Mangrove Sentinel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css"/>
+</head>
+<body class="dark">
+  <header class="navbar container">
+    <div class="brand">
+      <div class="logo-dot"></div>
+      <span class="brand-text">Mangrove Sentinel</span>
+    </div>
+    <nav class="nav-links">
+      <a href="/conservation">Conservation</a>
+      <a href="/ecosystem">Ecosystem</a>
+      <a href="/community">Community</a>
+      <a href="/events">Events</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-white" href="/profile">Profile</a>
+      <a class="btn btn-green" href="/dashboard">Dashboard</a>
+    </div>
+    <button class="nav-toggle" aria-label="toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main class="container section">
+    <div class="section-head">
+      <h1>🏆 Sentinel Leaderboard</h1>
+      <p class="muted">Top conservation guardians making a difference</p>
+    </div>
+
+    <!-- Top 3 -->
+    <div class="grid grid-3" style="margin-bottom: 32px;" id="top-three">
+      <!-- Top sentinels will be loaded here -->
+    </div>
+
+    <!-- Full Leaderboard -->
+    <div class="card">
+      <h3>All Sentinels</h3>
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
+          <thead>
+            <tr style="border-bottom: 1px solid var(--line);">
+              <th style="text-align: left; padding: 12px; color: var(--muted);">Rank</th>
+              <th style="text-align: left; padding: 12px; color: var(--muted);">Sentinel</th>
+              <th style="text-align: left; padding: 12px; color: var(--muted);">Location</th>
+              <th style="text-align: right; padding: 12px; color: var(--muted);">Points</th>
+              <th style="text-align: center; padding: 12px; color: var(--muted);">Status</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboard-table">
+            <!-- Leaderboard data will be loaded here -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-note">© Team DZ | Hackout'25 | Project Mangrove Sentinel</div>
+  </footer>
+
+  <script src="/static/auth.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async function() {
+      await loadLeaderboard();
+    });
+
+    async function loadLeaderboard() {
+      try {
+        const response = await fetch('/api/v1/users/leaderboard?limit=50');
+        if (response.ok) {
+          const sentinels = await response.json();
+          displayTopThree(sentinels.slice(0, 3));
+          displayFullLeaderboard(sentinels);
+        }
+      } catch (error) {
+        console.error('Error loading leaderboard:', error);
+      }
+    }
+
+    function displayTopThree(topThree) {
+      const container = document.getElementById('top-three');
+      container.innerHTML = topThree.map((sentinel, index) => {
+        const position = index + 1;
+        const medal = position === 1 ? '🥇' : position === 2 ? '🥈' : '🥉';
+        
+        return `
+          <div class="card" style="text-align: center; padding: 24px;">
+            <div style="font-size: 48px; margin-bottom: 12px;">${medal}</div>
+            <h4 style="margin: 0 0 8px 0;">${sentinel.full_name}</h4>
+            <p style="margin: 0 0 8px 0; color: var(--muted); font-size: 14px;">${sentinel.location || 'Location not set'}</p>
+            <div class="kpi-value" style="color: var(--green); font-size: 24px;">${sentinel.points}</div>
+            <p style="margin: 4px 0 0 0; color: var(--muted); font-size: 12px;">points</p>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function displayFullLeaderboard(sentinels) {
+      const tbody = document.getElementById('leaderboard-table');
+      tbody.innerHTML = sentinels.map((sentinel, index) => {
+        const rank = index + 1;
+        const rankDisplay = rank <= 3 ? `${rank === 1 ? '🥇' : rank === 2 ? '🥈' : '🥉'} ${rank}` : rank;
+        
+        return `
+          <tr style="border-bottom: 1px solid var(--line);">
+            <td style="padding: 12px; font-weight: 600;">${rankDisplay}</td>
+            <td style="padding: 12px;">
+              <div>
+                <div style="font-weight: 500;">${sentinel.full_name}</div>
+                <div style="font-size: 12px; color: var(--muted);">${sentinel.email}</div>
+              </div>
+            </td>
+            <td style="padding: 12px; color: var(--muted);">${sentinel.location || 'Not specified'}</td>
+            <td style="padding: 12px; text-align: right; font-weight: 600; color: var(--green);">${sentinel.points}</td>
+            <td style="padding: 12px; text-align: center;">
+              <span class="pill" style="padding: 4px 8px; font-size: 12px; border-radius: 12px; background: var(--green); color: #06240f;">
+                Active
+              </span>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+  </script>
+</body>
+</html>

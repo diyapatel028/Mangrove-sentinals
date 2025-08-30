@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Submit Report - Mangrove Sentinel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css"/>
+</head>
+<body class="dark">
+  <header class="navbar container">
+    <div class="brand">
+      <div class="logo-dot"></div>
+      <span class="brand-text">Mangrove Sentinel</span>
+    </div>
+    <nav class="nav-links">
+      <a href="/conservation">Conservation</a>
+      <a href="/ecosystem">Ecosystem</a>
+      <a href="/community">Community</a>
+      <a href="/events">Events</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-white" href="/dashboard">Dashboard</a>
+      <a class="btn btn-green" href="/">Back to Site</a>
+    </div>
+    <button class="nav-toggle" aria-label="toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main class="container section">
+    <div class="section-head">
+      <h1>Report a Threat</h1>
+      <p class="muted">Help protect our mangroves by reporting threats</p>
+    </div>
+
+    <div class="card" style="max-width: 600px; margin: 0 auto;">
+      <form id="reportForm">
+        <div style="margin-bottom: 16px;">
+          <label style="display: block; margin-bottom: 8px; color: var(--text);">Report Title *</label>
+          <input type="text" id="title" name="title" required 
+                 style="width: 100%; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg-2); color: var(--text);">
+        </div>
+        
+        <div style="margin-bottom: 16px;">
+          <label style="display: block; margin-bottom: 8px; color: var(--text);">Description</label>
+          <textarea id="description" name="description" rows="4"
+                    style="width: 100%; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg-2); color: var(--text);"></textarea>
+        </div>
+        
+        <div style="margin-bottom: 16px;">
+          <label style="display: block; margin-bottom: 8px; color: var(--text);">Location *</label>
+          <input type="text" id="location" name="location" required 
+                 style="width: 100%; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg-2); color: var(--text);">
+        </div>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+          <div>
+            <label style="display: block; margin-bottom: 8px; color: var(--text);">Latitude</label>
+            <input type="number" id="latitude" name="latitude" step="any"
+                   style="width: 100%; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg-2); color: var(--text);">
+          </div>
+          <div>
+            <label style="display: block; margin-bottom: 8px; color: var(--text);">Longitude</label>
+            <input type="number" id="longitude" name="longitude" step="any"
+                   style="width: 100%; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg-2); color: var(--text);">
+          </div>
+        </div>
+        
+        <div style="margin-bottom: 16px;">
+          <label style="display: block; margin-bottom: 8px; color: var(--text);">Threat Type *</label>
+          <select id="threat_type" name="threat_type" required 
+                  style="width: 100%; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg-2); color: var(--text);">
+            <option value="">Select threat type</option>
+            <option value="illegal_cutting">Illegal Cutting</option>
+            <option value="pollution">Pollution</option>
+            <option value="construction">Unauthorized Construction</option>
+            <option value="overfishing">Overfishing</option>
+            <option value="erosion">Coastal Erosion</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        
+        <div style="margin-bottom: 16px;">
+          <label style="display: block; margin-bottom: 8px; color: var(--text);">Severity *</label>
+          <select id="severity" name="severity" required 
+                  style="width: 100%; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: var(--bg-2); color: var(--text);">
+            <option value="low">Low</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">High</option>
+          </select>
+        </div>
+        
+        
+        <button type="submit" class="btn btn-green" style="width: 100%;">Submit Report</button>
+      </form>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-note">© Team DZ | Hackout'25 | Project Mangrove Sentinel</div>
+  </footer>
+
+  <script src="/static/auth.js"></script>
+  <script src="/static/script.js"></script>
+  <script>
+    // Check if user is authenticated
+    if (!isAuthenticated()) {
+      alert('Please login to submit reports.');
+      window.location.href = '/login';
+    }
+    
+    document.getElementById('reportForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const formData = {
+        title: document.getElementById('title').value,
+        description: document.getElementById('description').value,
+        location: document.getElementById('location').value,
+        latitude: parseFloat(document.getElementById('latitude').value) || null,
+        longitude: parseFloat(document.getElementById('longitude').value) || null,
+        threat_type: document.getElementById('threat_type').value,
+        severity: document.getElementById('severity').value
+      };
+      
+      const result = await submitAuthenticatedReport(formData);
+      if (result) {
+        setTimeout(() => {
+          window.location.href = '/dashboard';
+        }, 2000);
+      }
+    });
+  </script>
+</body>
+</html>

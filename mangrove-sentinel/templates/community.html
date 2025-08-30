@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Community Engagement - Mangrove Sentinel</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css"/>
+</head>
+<body class="dark">
+  <header class="navbar container">
+    <div class="brand">
+      <div class="logo-dot"></div>
+      <span class="brand-text">Mangrove Sentinel</span>
+    </div>
+    <nav class="nav-links">
+      <a href="/conservation">Conservation</a>
+      <a href="/ecosystem">Ecosystem</a>
+      <a href="/community" class="active">Community</a>
+      <a href="/events">Events</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-white" href="/profile">Profile</a>
+      <a class="btn btn-green" href="/dashboard">Dashboard</a>
+    </div>
+    <button class="nav-toggle" aria-label="toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main class="container section">
+    <div class="section-head">
+      <h1>🤝 Community Engagement</h1>
+      <p class="muted">Connect, collaborate, and contribute to mangrove conservation efforts</p>
+    </div>
+
+    <!-- Community Stats -->
+    <div class="grid grid-4 kpis">
+      <div class="card kpi">
+        <span class="kpi-label">Active Volunteers</span>
+        <span class="kpi-value" id="volunteers">1,245</span>
+      </div>
+      <div class="card kpi">
+        <span class="kpi-label">Local Groups</span>
+        <span class="kpi-value" id="local-groups">67</span>
+      </div>
+      <div class="card kpi">
+        <span class="kpi-label">Completed Projects</span>
+        <span class="kpi-value" id="projects">182</span>
+      </div>
+      <div class="card kpi">
+        <span class="kpi-label">Impact Hours</span>
+        <span class="kpi-value" id="impact-hours">24,580</span>
+      </div>
+    </div>
+
+    <!-- Volunteer Opportunities -->
+    <section class="mt-lg">
+      <h2>Current Volunteer Opportunities</h2>
+      <div class="grid grid-2 mt-md">
+        <div class="card">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+            <h3>Beach Cleanup Drive</h3>
+            <span style="padding: 4px 8px; border-radius: 12px; font-size: 12px; background: var(--green); color: #06240f;">Open</span>
+          </div>
+          <p class="muted">Join us for a coastal cleanup in Marine National Park, Gujarat</p>
+          <div style="margin: 16px 0; padding: 12px; background: var(--bg-secondary); border-radius: 8px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+              <span class="muted">📅 Date:</span>
+              <span>Sept 15, 2024</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+              <span class="muted">📍 Location:</span>
+              <span>Marine National Park</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span class="muted">👥 Needed:</span>
+              <span>25 volunteers</span>
+            </div>
+          </div>
+          <a class="btn btn-green btn-sm" href="#signup">Sign Up</a>
+        </div>
+
+        <div class="card">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+            <h3>Mangrove Planting</h3>
+            <span style="padding: 4px 8px; border-radius: 12px; font-size: 12px; background: var(--amber); color: #2f1b00;">Limited</span>
+          </div>
+          <p class="muted">Help plant mangrove saplings in restoration area, Sundarbans</p>
+          <div style="margin: 16px 0; padding: 12px; background: var(--bg-secondary); border-radius: 8px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+              <span class="muted">📅 Date:</span>
+              <span>Sept 22, 2024</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+              <span class="muted">📍 Location:</span>
+              <span>Sundarbans, WB</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span class="muted">👥 Needed:</span>
+              <span>8 volunteers</span>
+            </div>
+          </div>
+          <a class="btn btn-green btn-sm" href="#signup">Join Waitlist</a>
+        </div>
+
+        <div class="card">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+            <h3>Educational Outreach</h3>
+            <span style="padding: 4px 8px; border-radius: 12px; font-size: 12px; background: var(--green); color: #06240f;">Open</span>
+          </div>
+          <p class="muted">Teach local school children about mangrove ecosystems</p>
+          <div style="margin: 16px 0; padding: 12px; background: var(--bg-secondary); border-radius: 8px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+              <span class="muted">📅 Date:</span>
+              <span>Ongoing</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+              <span class="muted">📍 Location:</span>
+              <span>Multiple Schools</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span class="muted">👥 Needed:</span>
+              <span>15 educators</span>
+            </div>
+          </div>
+          <a class="btn btn-green btn-sm" href="#signup">Apply Now</a>
+        </div>
+
+        <div class="card">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 12px;">
+            <h3>Wildlife Monitoring</h3>
+            <span style="padding: 4px 8px; border-radius: 12px; font-size: 12px; background: var(--blue); color: #0a1b3d;">Training</span>
+          </div>
+          <p class="muted">Monitor bird populations and marine life in protected areas</p>
+          <div style="margin: 16px 0; padding: 12px; background: var(--bg-secondary); border-radius: 8px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+              <span class="muted">📅 Date:</span>
+              <span>Oct 5, 2024</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+              <span class="muted">📍 Location:</span>
+              <span>Bhitarkanika, Odisha</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span class="muted">👥 Needed:</span>
+              <span>12 researchers</span>
+            </div>
+          </div>
+          <a class="btn btn-white btn-sm" href="#training">Learn More</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Local Groups -->
+    <section class="mt-lg">
+      <h2>Active Local Groups</h2>
+      <div class="grid grid-3 mt-md">
+        <div class="card">
+          <div style="text-align: center; margin-bottom: 16px;">
+            <div style="width: 60px; height: 60px; background: var(--green); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-size: 24px;">🌊</div>
+            <h4>Coastal Guardians</h4>
+            <p class="muted">Chennai, Tamil Nadu</p>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
+            <span class="muted">Members:</span>
+            <span>145</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
+            <span class="muted">Projects:</span>
+            <span>23 completed</span>
+          </div>
+          <a class="btn btn-white btn-sm" href="#join">Join Group</a>
+        </div>
+
+        <div class="card">
+          <div style="text-align: center; margin-bottom: 16px;">
+            <div style="width: 60px; height: 60px; background: var(--blue); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-size: 24px;">🐦</div>
+            <h4>Mangrove Protectors</h4>
+            <p class="muted">Mumbai, Maharashtra</p>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
+            <span class="muted">Members:</span>
+            <span>89</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
+            <span class="muted">Projects:</span>
+            <span>18 completed</span>
+          </div>
+          <a class="btn btn-white btn-sm" href="#join">Join Group</a>
+        </div>
+
+        <div class="card">
+          <div style="text-align: center; margin-bottom: 16px;">
+            <div style="width: 60px; height: 60px; background: var(--amber); border-radius: 50%; margin: 0 auto 12px; display: flex; align-items: center; justify-content: center; font-size: 24px;">🌱</div>
+            <h4>Eco Warriors</h4>
+            <p class="muted">Kolkata, West Bengal</p>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
+            <span class="muted">Members:</span>
+            <span>203</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
+            <span class="muted">Projects:</span>
+            <span>31 completed</span>
+          </div>
+          <a class="btn btn-white btn-sm" href="#join">Join Group</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="mt-lg">
+      <h2>Community Success Stories</h2>
+      <div class="grid grid-2 mt-md">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?q=80&w=800&auto=format&fit=crop" 
+               alt="Community project" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
+          <div style="padding: 16px 0;">
+            <h4>Fishermen Turn Conservation Champions</h4>
+            <p class="muted">Local fishing community in Kerala successfully restored 25 hectares of degraded mangrove habitat, improving both fish populations and coastal protection.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px;">
+              <span style="padding: 4px 8px; border-radius: 12px; font-size: 12px; background: var(--green); color: #06240f;">Success Story</span>
+              <span class="muted">Kochi, Kerala</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=800&auto=format&fit=crop" 
+               alt="Youth engagement" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
+          <div style="padding: 16px 0;">
+            <h4>Student-Led Monitoring Program</h4>
+            <p class="muted">College students from Goa established a citizen science program, training 500+ volunteers to monitor water quality and wildlife populations.</p>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 16px;">
+              <span style="padding: 4px 8px; border-radius: 12px; font-size: 12px; background: var(--blue); color: #0a1b3d;">Impact Story</span>
+              <span class="muted">Panaji, Goa</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recognition Program -->
+    <section class="mt-lg">
+      <h2>Volunteer Recognition</h2>
+      <div class="card mt-md">
+        <div style="text-align: center; padding: 24px;">
+          <h3>Volunteer of the Month</h3>
+          <div style="width: 80px; height: 80px; background: var(--green); border-radius: 50%; margin: 16px auto; display: flex; align-items: center; justify-content: center; font-size: 32px;">👑</div>
+          <h4>Priya Sharma</h4>
+          <p class="muted">Marine Biology Student, Chennai</p>
+          <p style="margin: 16px 0;">Organized 12 beach cleanups and educated 300+ school children about marine conservation. Her dedication has inspired a new generation of environmental stewards.</p>
+          <div style="display: flex; justify-content: center; gap: 16px; margin-top: 16px;">
+            <div style="text-align: center;">
+              <div class="kpi-value" style="color: var(--green); font-size: 18px;">47</div>
+              <p class="muted" style="margin: 0; font-size: 12px;">Hours Volunteered</p>
+            </div>
+            <div style="text-align: center;">
+              <div class="kpi-value" style="color: var(--blue); font-size: 18px;">8</div>
+              <p class="muted" style="margin: 0; font-size: 12px;">Events Organized</p>
+            </div>
+            <div style="text-align: center;">
+              <div class="kpi-value" style="color: var(--amber); font-size: 18px;">320</div>
+              <p class="muted" style="margin: 0; font-size: 12px;">Points Earned</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Training Resources -->
+    <section class="mt-lg">
+      <h2>Training & Resources</h2>
+      <div class="grid grid-4 mt-md">
+        <a class="card pill" href="#training">
+          <h4>📚 Volunteer Training</h4>
+          <p class="muted">Complete training modules to get certified</p>
+        </a>
+        <a class="card pill" href="#resources">
+          <h4>🔬 Research Tools</h4>
+          <p class="muted">Access scientific monitoring equipment</p>
+        </a>
+        <a class="card pill" href="#guidelines">
+          <h4>📋 Safety Guidelines</h4>
+          <p class="muted">Stay safe during field activities</p>
+        </a>
+        <a class="card pill" href="#communication">
+          <h4>💬 Community Forum</h4>
+          <p class="muted">Connect with other volunteers</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <div class="center mt-lg">
+      <a class="btn btn-green" href="/register">Become a Volunteer</a>
+      <a class="btn btn-white" href="/leaderboard" style="margin-left: 12px;">View Leaderboard</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-note">© Team DZ | Hackout'25 | Project Mangrove Sentinel</div>
+  </footer>
+
+  <script src="/static/auth.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async function() {
+      await loadCommunityData();
+    });
+
+    async function loadCommunityData() {
+      try {
+        // Load community stats
+        const statsResponse = await fetch('/api/v1/community/stats');
+        if (statsResponse.ok) {
+          const stats = await statsResponse.json();
+          document.getElementById('volunteers').textContent = stats.volunteers.toLocaleString();
+          document.getElementById('local-groups').textContent = stats.local_groups;
+          document.getElementById('projects').textContent = stats.projects;
+          document.getElementById('impact-hours').textContent = stats.impact_hours.toLocaleString();
+        }
+      } catch (error) {
+        console.error('Error loading community data:', error);
+      }
+    }
+  </script>
+  <script defer src="/static/script.js"></script>
+</body>
+</html>
