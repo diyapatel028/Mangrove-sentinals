@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mangrove Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="dark">
+  <header class="navbar container">
+    <div class="brand">
+      <div class="logo-dot"></div>
+      <span class="brand-text">Mangrove Sentinel</span>
+    </div>
+    <nav class="nav-links">
+      <a href="index.html#conservation">Conservation</a>
+      <a href="index.html#ecosystem">Ecosystem</a>
+      <a href="index.html#community">Community</a>
+      <a href="index.html#events">Events</a>
+    </nav>
+    <div class="nav-actions">
+      <a class="btn btn-white" href="#">Join Us</a>
+      <a class="btn btn-green" href="index.html">Back to Site</a>
+    </div>
+    <button class="nav-toggle" aria-label="toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main class="container section">
+    <div class="section-head">
+      <h1>Real‑time Dashboard for Mangrove Protection</h1>
+      <p class="muted">Track alerts, predict risks, and mobilize community action.</p>
+    </div>
+
+    <!-- KPI Cards -->
+    <div class="grid grid-4 kpis">
+      <div class="card kpi">
+        <span class="kpi-label">Active Alerts</span>
+        <span class="kpi-value">18</span>
+      </div>
+      <div class="card kpi">
+        <span class="kpi-label">High‑Risk Zones</span>
+        <span class="kpi-value">7</span>
+      </div>
+      <div class="card kpi">
+        <span class="kpi-label">Validated Reports</span>
+        <span class="kpi-value">312</span>
+      </div>
+      <div class="card kpi">
+        <span class="kpi-label">Community Sentinels</span>
+        <span class="kpi-value">1,245</span>
+      </div>
+    </div>
+
+    <!-- Charts / Panels -->
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>Your impact matters</h3>
+        <canvas id="impactChart" height="140"></canvas>
+      </div>
+      <div class="card">
+        <h3>Alerts & Risks</h3>
+        <ul class="list">
+          <li><span class="dot dot-red"></span> Illegal cutting reports rising in Zone 3</li>
+          <li><span class="dot dot-amber"></span> Flood risk predicted near estuary</li>
+          <li><span class="dot dot-green"></span> Patrol completed in Sector 5</li>
+          <li><span class="dot dot-amber"></span> Oil spill alert under verification</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 class="mt-lg">Your conservation plan includes</h2>
+    <div class="grid grid-3">
+      <div class="card pill"><h4>AI Predictions</h4></div>
+      <div class="card pill"><h4>Community Reports</h4></div>
+      <div class="card pill"><h4>Sentinel Leaderboard</h4></div>
+      <div class="card pill"><h4>Reward Points</h4></div>
+      <div class="card pill"><h4>Badges & Achievements</h4></div>
+      <div class="card pill"><h4>Authority Actions</h4></div>
+    </div>
+
+    <div class="center mt-lg">
+      <a class="btn btn-green" href="#">Open Dashboard</a>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-note">© Team DZ | Hackout’25 | Project Mangrove Sentinel</div>
+  </footer>
+
+  <script>
+    // Simple line chart
+    const ctx = document.getElementById('impactChart');
+    if (ctx) {
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+          datasets: [{
+            label: 'Validated Reports',
+            data: [12, 19, 13, 25, 22, 30, 34],
+            fill: false,
+            borderWidth: 2,
+            tension: 0.35
+          }]
+        },
+        options: {
+          plugins: { legend: { display: false } },
+          scales: {
+            x: { grid: { display: false }, ticks: { color: '#bdbdbd' } },
+            y: { grid: { color: 'rgba(255,255,255,0.08)' }, ticks: { color: '#bdbdbd' } }
+          }
+        }
+      });
+    }
+  </script>
+  <script defer src="script.js"></script>
+</body>
+</html>
